@@ -1,4 +1,4 @@
-package com.example.NewsFeedsApp
+package com.example.newsFeedsApp
 
 import org.junit.Test
 

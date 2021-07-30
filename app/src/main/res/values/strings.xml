@@ -4,5 +4,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
     <string name="explore_text">Explore</string>
+    <string name="live_chat_text">Live Chat</string>
+    <string name="magazine_text">E-Magazine</string>
+    <string name="gallery">Gallery</string>
+    <string name="wish_list">Wish List</string>
     <string name="welcome_text">Welcome</string>
+    <string name="link_text">Link Development</string>
+    <string name="search">Search</string>
 </resources>
