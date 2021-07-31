@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newsFeedsApp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -67,5 +68,7 @@ class HomeFragment : Fragment(), ArticlesAdapter.OnItemClicked {
 
     override fun onItemClicked(article: Article) {
         viewModel.setArticleModel(article)
+        Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+            .navigate(R.id.action_home_fragment_to_details_fragment)
     }
 }

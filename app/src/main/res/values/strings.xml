@@ -11,4 +11,6 @@
     <string name="welcome_text">Welcome</string>
     <string name="link_text">Link Development</string>
     <string name="search">Search</string>
+    <string name="article">article</string>
+    <string name="open_website">Open Website</string>
 </resources>

@@ -8,8 +8,9 @@
         android:layout_height="match_parent"
         android:background="#E1DFDF"
         tools:context=".HomeFragment">
-        <?xml version="1.0" encoding="utf-8"?>
+
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
@@ -38,6 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
                     android:ems="2"
                     android:textAlignment="textStart"
                     android:textColor="@color/black"
@@ -67,6 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
                     android:layout_marginBottom="20dp"
                     android:textAlignment="viewStart"
                     android:textColor="@android:color/darker_gray"
@@ -84,8 +87,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:textAlignment="viewEnd"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/article_image"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:text="@string/welcome_text" />
@@ -93,5 +96,15 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
+        <Button
+            android:id="@+id/open_website"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/black_box_bg"
+            android:text="@string/open_website"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

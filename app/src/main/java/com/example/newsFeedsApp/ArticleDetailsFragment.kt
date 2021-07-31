@@ -1,5 +1,7 @@
 package com.example.newsFeedsApp
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.newsFeedsApp.databinding.FragmentArticleDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.article_item_layout.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -36,7 +37,7 @@ class ArticleDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentArticleDetailsBinding.bind(view)
         viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
-        Glide.with(requireContext()).load(viewModel.article).into(binding.articleImage)
+        Glide.with(requireContext()).load(viewModel.article?.urlToImage).into(binding.articleImage)
         binding.authorName.text = viewModel.article?.author
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
         val outputFormat = SimpleDateFormat("MMM dd, yyyy")
@@ -45,6 +46,14 @@ class ArticleDetailsFragment : Fragment() {
         binding.createdAt.text = formattedDate
         binding.title.text = viewModel.article?.title
         binding.descriptionText.text = viewModel.article?.description
+
+        binding.openWebsite.setOnClickListener {
+            val intent = Intent()
+            intent.action = Intent.ACTION_VIEW
+            intent.addCategory(Intent.CATEGORY_BROWSABLE)
+            intent.data = Uri.parse(viewModel.article?.url)
+            activity?.startActivity(intent)
+        }
 
     }
 }
