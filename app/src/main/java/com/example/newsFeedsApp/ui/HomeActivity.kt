@@ -1,4 +1,4 @@
-package com.example.newsFeedsApp
+package com.example.newsFeedsApp.ui
 
 import android.os.Bundle
 import android.view.Gravity
@@ -14,6 +14,8 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.newsFeedsApp.viewmodel.HomeViewModel
+import com.example.newsFeedsApp.R
 import com.example.newsFeedsApp.databinding.ActivityHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.nav_drawer_layout.view.*

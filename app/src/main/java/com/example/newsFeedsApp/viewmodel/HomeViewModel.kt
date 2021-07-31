@@ -1,8 +1,10 @@
-package com.example.newsFeedsApp
+package com.example.newsFeedsApp.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.newsFeedsApp.R
+import com.example.newsFeedsApp.models.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

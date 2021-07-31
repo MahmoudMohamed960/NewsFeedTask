@@ -1,4 +1,4 @@
-package com.example.newsFeedsApp
+package com.example.newsFeedsApp.models
 
 enum class Status {
         SUCCESS,

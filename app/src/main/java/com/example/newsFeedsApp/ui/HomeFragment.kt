@@ -1,4 +1,4 @@
-package com.example.newsFeedsApp
+package com.example.newsFeedsApp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.newsFeedsApp.viewmodel.HomeViewModel
+import com.example.newsFeedsApp.R
+import com.example.newsFeedsApp.models.Status
 import com.example.newsFeedsApp.databinding.FragmentHomeBinding
+import com.example.newsFeedsApp.models.Article
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

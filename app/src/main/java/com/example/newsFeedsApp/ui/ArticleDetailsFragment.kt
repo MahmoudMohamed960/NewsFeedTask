@@ -1,4 +1,4 @@
-package com.example.newsFeedsApp
+package com.example.newsFeedsApp.ui
 
 import android.content.Intent
 import android.net.Uri
@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.newsFeedsApp.viewmodel.HomeViewModel
+import com.example.newsFeedsApp.R
 import com.example.newsFeedsApp.databinding.FragmentArticleDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
@@ -37,7 +39,7 @@ class ArticleDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentArticleDetailsBinding.bind(view)
         viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
-        Glide.with(requireContext()).load(viewModel.article?.urlToImage).into(binding.articleImage)
+        Glide.with(requireContext()).load(viewModel.article?.urlToImage).placeholder(R.drawable.placeholder).into(binding.articleImage)
         binding.authorName.text = viewModel.article?.author
         val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
         val outputFormat = SimpleDateFormat("MMM dd, yyyy")

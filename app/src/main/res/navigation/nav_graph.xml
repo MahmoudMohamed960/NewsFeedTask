@@ -6,7 +6,7 @@
     app:startDestination="@id/home_fragment">
     <fragment
         android:id="@+id/home_fragment"
-        android:name="com.example.newsFeedsApp.HomeFragment"
+        android:name="com.example.newsFeedsApp.ui.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/details_fragment"
-        android:name="com.example.newsFeedsApp.ArticleDetailsFragment"
+        android:name="com.example.newsFeedsApp.ui.ArticleDetailsFragment"
         android:label="@string/article"
         tools:layout="@layout/fragment_article_details" />
 </navigation>

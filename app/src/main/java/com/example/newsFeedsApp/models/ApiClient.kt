@@ -1,4 +1,4 @@
-package com.example.newsFeedsApp
+package com.example.newsFeedsApp.models
 
 import android.content.Context
 import okhttp3.OkHttpClient

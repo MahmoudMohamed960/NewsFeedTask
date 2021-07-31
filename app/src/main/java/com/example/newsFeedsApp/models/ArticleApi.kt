@@ -1,4 +1,4 @@
-package com.example.newsFeedsApp
+package com.example.newsFeedsApp.models
 
 import retrofit2.Response
 import retrofit2.http.GET

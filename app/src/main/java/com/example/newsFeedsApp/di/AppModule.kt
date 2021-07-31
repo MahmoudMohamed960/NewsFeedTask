@@ -1,6 +1,8 @@
-package com.example.newsFeedsApp
+package com.example.newsFeedsApp.di
 
 import android.content.Context
+import com.example.newsFeedsApp.models.ArticleApi
+import com.example.newsFeedsApp.models.ApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

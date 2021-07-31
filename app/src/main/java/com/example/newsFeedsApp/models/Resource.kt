@@ -1,4 +1,4 @@
-package com.example.newsFeedsApp
+package com.example.newsFeedsApp.models
 
 data class Resource<out T>(
     val status: Status,
