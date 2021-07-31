@@ -13,7 +13,7 @@ import com.example.newsFeedsApp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), ArticlesAdapter.OnItemClicked {
 
     lateinit var viewModel: HomeViewModel
     lateinit var binding: FragmentHomeBinding
@@ -48,7 +48,13 @@ class HomeFragment : Fragment() {
                                 false
                             )
                             binding.newsList.adapter =
-                                articlesList?.let { it1 -> ArticlesAdapter(requireContext(), it1) }
+                                articlesList?.let { it1 ->
+                                    ArticlesAdapter(
+                                        requireContext(),
+                                        it1,
+                                        this
+                                    )
+                                }
                         }
                     }
                 }
@@ -57,5 +63,9 @@ class HomeFragment : Fragment() {
             }
 
         })
+    }
+
+    override fun onItemClicked(article: Article) {
+        viewModel.setArticleModel(article)
     }
 }

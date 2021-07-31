@@ -10,7 +10,11 @@ import kotlinx.android.synthetic.main.article_item_layout.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ArticlesAdapter(var context: Context, var list: MutableList<Article>) :
+class ArticlesAdapter(
+    var context: Context,
+    var list: MutableList<Article>,
+    var onItemClicked: OnItemClicked
+) :
     RecyclerView.Adapter<ArticlesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,8 +40,14 @@ class ArticlesAdapter(var context: Context, var list: MutableList<Article>) :
             val parsedDate: Date = inputFormat.parse(articleModel.publishedAt)
             val formattedDate: String = outputFormat.format(parsedDate)
             itemView.created_at.text = formattedDate
+            itemView.setOnClickListener {
+                onItemClicked.onItemClicked(articleModel)
+            }
 
         }
+    }
 
+    interface OnItemClicked {
+        fun onItemClicked(article: Article)
     }
 }

@@ -17,8 +17,8 @@ class HomeViewModel @Inject constructor(val api: ArticleApi) : ViewModel() {
     private val _articlesList: MutableLiveData<Resource<ArticleResponse>> = MutableLiveData()
     val articlesList: LiveData<Resource<ArticleResponse>>
         get() = _articlesList
+    var article: Article? = null
 
-    var resource: Resource<ArticleResponse>? = null
 
     fun getNavDrawerList(): LinkedHashMap<Int, Int> {
         navDrawerItems[R.string.explore_text] = R.drawable.ic_explore
@@ -30,8 +30,7 @@ class HomeViewModel @Inject constructor(val api: ArticleApi) : ViewModel() {
     }
 
     fun getArticlesList() {
-        resource =
-            Resource(Status.LOADING, null, null, null)
+        _articlesList.postValue(Resource(Status.LOADING, null, null, null))
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val resOne = async { api.getArticlesList("the-next-web", API_KEY) }
@@ -43,12 +42,12 @@ class HomeViewModel @Inject constructor(val api: ArticleApi) : ViewModel() {
                         }
                     }
                 } else {
-                    resource =
+                    _articlesList.postValue(
                         Resource(Status.ERROR, null, null, resOne.await().errorBody().toString())
+                    )
                 }
             } catch (exception: Exception) {
-                resource = Resource(Status.ERROR, null, null, exception.message)
-                _articlesList.postValue(resource)
+                _articlesList.postValue(Resource(Status.ERROR, null, null, exception.message))
             }
         }
     }
@@ -60,7 +59,17 @@ class HomeViewModel @Inject constructor(val api: ArticleApi) : ViewModel() {
 //        if (nextWebResponse.status == "ok" && associatedPressResponse.status == "ok") {
 //            var articlesList = nextWebResponse.articles
 //            associatedPressResponse.articles?.let { articlesList?.addAll(it) }
-        resource = Resource(Status.SUCCESS, nextWebResponse, associatedPressResponse, null)
-        _articlesList.postValue(resource)
+        _articlesList.postValue(
+            Resource(
+                Status.SUCCESS,
+                nextWebResponse,
+                associatedPressResponse,
+                null
+            )
+        )
+    }
+
+    fun setArticleModel(article: Article) {
+        this.article = article
     }
 }
